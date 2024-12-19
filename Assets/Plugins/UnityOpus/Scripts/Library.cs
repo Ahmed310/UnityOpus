@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace UnityOpus {
-    public enum SamplingFrequency : int {
+namespace UnityOpus
+{
+    public enum SamplingFrequency : int
+    {
         Frequency_8000 = 8000,
         Frequency_12000 = 12000,
         Frequency_16000 = 16000,
@@ -10,24 +12,28 @@ namespace UnityOpus {
         Frequency_48000 = 48000,
     }
 
-    public enum NumChannels : int {
+    public enum NumChannels : int
+    {
         Mono = 1,
         Stereo = 2,
     }
 
-    public enum OpusApplication : int {
+    public enum OpusApplication : int
+    {
         VoIP = 2048,
         Audio = 2049,
         RestrictedLowDelay = 2051,
     }
 
-    public enum OpusSignal : int {
+    public enum OpusSignal : int
+    {
         Auto = -1000,
         Voice = 3001,
         Music = 3002
     }
 
-    public enum ErrorCode {
+    public enum ErrorCode
+    {
         OK = 0,
         BadArg = -1,
         BufferTooSmall = -2,
@@ -38,11 +44,14 @@ namespace UnityOpus {
         AllocFail = -7,
     }
 
-    public class Library {
+    public class Library
+    {
         public const int maximumPacketDuration = 5760;
 
 #if UNITY_ANDROID
         const string dllName = "unityopus";
+#elif UNITY_IOS
+        const string dllName = "__Internal";
 #else
         const string dllName = "UnityOpus";
 #endif
